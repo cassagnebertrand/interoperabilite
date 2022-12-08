@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+
+<!DOCTYPE BonCommandes [
+        <!ELEMENT BonCommandes (Carnet,Produits, Commandes)>
+        <!ELEMENT Carnet (Entreprise+)>
+        <!ELEMENT Commandes (Bon+)>
+        <!ELEMENT Entreprise (Nom, Adresse, Telephone, Fax?)>
+        <!ELEMENT Bon (Date, Total, Detail)>
+        <!ELEMENT Detail (Produit-Quantite+)>
+        <!ELEMENT Produits (Produit+)>
+        <!ELEMENT Produit (Reference, Intitule, Prix)>
+        <!ELEMENT Nom (#PCDATA)>
+        <!ELEMENT Adresse (#PCDATA)>
+        <!ELEMENT Telephone (#PCDATA)>
+        <!ELEMENT Fax (#PCDATA)>
+        <!ELEMENT Date (#PCDATA)>
+        <!ELEMENT Total (#PCDATA)>
+        <!ELEMENT Reference (#PCDATA)>
+        <!ELEMENT Intitule (#PCDATA)>
+        <!ELEMENT Produit-Quantite (#PCDATA)>
+        <!ELEMENT Prix (#PCDATA)>
+
+        <!ATTLIST Entreprise
+                identifiant ID #REQUIRED>
+        <!ATTLIST Produit
+                identifiant ID #REQUIRED>
+        <!ATTLIST Produit-Quantite
+                idproduit IDREF #REQUIRED>
+        <!ATTLIST Bon
+                emetteur IDREF #REQUIRED
+                recepteur IDREF #REQUIRED>
+        ]>
+
+<BonCommandes>
+    <Carnet>
+        <Entreprise identifiant="E1">
+            <Nom>Entreprise 1</Nom>
+            <Adresse>Adresse 1</Adresse>
+            <Telephone>03 01 85 75 34</Telephone>
+        </Entreprise>
+        <Entreprise identifiant="E2">
+            <Nom>Entreprise 2</Nom>
+            <Adresse>Adresse 2</Adresse>
+            <Telephone>03 01 85 55 34</Telephone>
+        </Entreprise>
+        <Entreprise identifiant="E3">
+            <Nom>Entreprise 3</Nom>
+            <Adresse> Adresse 3</Adresse>
+            <Telephone>03 01 85 75 30</Telephone>
+        </Entreprise>
+    </Carnet>
+    <Produits>
+        <Produit identifiant="P1">
+            <Reference>Tel</Reference>
+            <Intitule>Un jolie tel</Intitule>
+            <Prix>500</Prix>
+        </Produit>
+        <Produit identifiant="P2">
+            <Reference>Tel 2</Reference>
+            <Intitule>Un tel classique</Intitule>
+            <Prix>200</Prix>
+        </Produit>
+        <Produit identifiant="P3">
+            <Reference>Tel 3</Reference>
+            <Intitule>Un tel basique</Intitule>
+            <Prix>1000</Prix>
+        </Produit>
+    </Produits>
+    <Commandes>
+            <Bon emetteur="E1" recepteur="E2">
+                <Date>05/01/2022</Date>
+                <Total>2100</Total>
+                <Detail>
+                    <Produit-Quantite idproduit="P1">4</Produit-Quantite>
+                    <Produit-Quantite idproduit="P3">1</Produit-Quantite>
+                </Detail>
+            </Bon>
+            <Bon emetteur="E3" recepteur="E2">
+                <Date>07/04/2022</Date>
+                <Total>1000</Total>
+                <Detail>
+                    <Produit-Quantite idproduit="P3">10</Produit-Quantite>
+                </Detail>
+            </Bon>
+        <Bon emetteur="E2" recepteur="E3">
+            <Date>08/05/2022</Date>
+            <Total>2000</Total>
+            <Detail>
+                <Produit-Quantite idproduit="P1">2</Produit-Quantite>
+                <Produit-Quantite idproduit="P2">3</Produit-Quantite>
+                <Produit-Quantite idproduit="P2">4</Produit-Quantite>
+            </Detail>
+        </Bon>
+    </Commandes>
+</BonCommandes>
+

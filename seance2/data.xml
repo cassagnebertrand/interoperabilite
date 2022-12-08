@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+
+<!DOCTYPE CDs [
+    <!ELEMENT CDs (CD+)>
+    <!ELEMENT CD (Titre, Interprete+, Genre, Piste+, Pochette?, Site?)>
+    <!ELEMENT Piste (Titre, Compositeur+, Duree)>
+    <!ELEMENT Titre (#PCDATA)>
+    <!ELEMENT Interprete (#PCDATA)>
+    <!ELEMENT Genre (#PCDATA)>
+    <!ELEMENT Compositeur (#PCDATA)>
+    <!ELEMENT Duree (#PCDATA)>
+    <!ELEMENT Pochette (Urlface, Urldos?)>
+    <!ELEMENT Urlface (#PCDATA)>
+    <!ELEMENT Urldos (#PCDATA)>
+    <!ELEMENT Site (#PCDATA)>
+    ]>
+
+<CDs>
+    <CD>
+        <Titre>POE session</Titre>
+        <Interprete>Bussy</Interprete>
+        <Interprete>Théo Hakola</Interprete>
+        <Interprete>Rodolf Burger</Interprete>
+        <Genre>Rock</Genre>
+        <Piste>
+            <Titre>Bright be the place</Titre>
+            <Compositeur>Lord Byron</Compositeur>
+            <Compositeur>Xavier Bussy</Compositeur>
+            <Compositeur>Fred Jaillard</Compositeur>
+            <Duree>3:51</Duree>
+        </Piste>
+        <Piste>
+            <Titre>King Pest</Titre>
+            <Compositeur>E.Allan Poe</Compositeur>
+            <Compositeur>Xavier Bussy</Compositeur>
+            <Compositeur>Fred Jaillard</Compositeur>
+            <Compositeur>Dominique Comont</Compositeur>
+            <Duree>5:02</Duree>
+        </Piste>
+        <Pochette>
+            <Urlface>./bussyfront.gif</Urlface>
+        </Pochette>
+    </CD>
+    <CD>
+        <Titre>The book of lies</Titre>
+        <Interprete>Jack the Ripper</Interprete>
+        <Genre>Rock</Genre>
+        <Piste>
+            <Titre>Dog meets wolf</Titre>
+            <Compositeur>Jack the Ripper</Compositeur>
+            <Duree>125</Duree>
+        </Piste>
+        <Piste>
+            <Titre>Prayer in a Tango</Titre>
+            <Compositeur>Jack the Ripper</Compositeur>
+            <Duree>112</Duree>
+        </Piste>
+        <Pochette>
+            <Urlface>./jacktrfront.gif</Urlface>
+            <Urldos>/jacktrback.gif</Urldos>
+        </Pochette>
+        <Site>http://jack.ripper.free.fr/</Site>
+    </CD>
+    <CD>
+        <Titre>Hoarse</Titre>
+        <Interprete>16 Horsepower</Interprete>
+        <Interprete>Bertrand Cantat</Interprete>
+        <Genre>Rock/live</Genre>
+        <Piste>
+            <Titre>Amarican Wheeze</Titre>
+            <Compositeur>Edwards</Compositeur>
+            <Compositeur>16 Horsepower></Compositeur>
+            <Duree>155</Duree>
+        </Piste>
+        <Piste>
+            <Titre>Black Soul Choir</Titre>
+            <Compositeur>Edwards</Compositeur>
+            <Compositeur>16 Horsepower</Compositeur>
+            <Duree>195</Duree>
+        </Piste>
+    </CD>
+</CDs>
