@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" standalone="yes"?>
+
+<!DOCTYPE DATAS [
+        <!ELEMENT DATAS (Films,Realisateurs,Acteurs) >
+
+        <!ELEMENT Films (Film)* >
+        <!ELEMENT Realisateurs (Realisateur)* >
+        <!ELEMENT Acteurs      (Acteur)+ >
+
+
+        <!ELEMENT Film (Titre, (Scenario)*, Genre, Pays, Duree, Resume, (Palmares)*,
+                (Sortie)?, (Image)*, (Montage)*, (Musique)*, (Producteur)+, Distributeur, (Critique)*)>
+        <!ELEMENT Realisateur  (Nom, Prenom)>
+        <!ELEMENT Scenario     (Nom, Prenom)>
+        <!ELEMENT Image        (Nom, Prenom)>
+        <!ELEMENT Montage      (Nom, Prenom)>
+
+
+        <!ELEMENT Acteur       (Nom, (Prenom)?)>
+
+
+        <!ELEMENT Critique     (Media, Auteur, (Note)?, (Titre)?, Texte) >
+        <!ELEMENT Resume       ((Titre)?, Texte) >
+        <!ELEMENT Genre        (#PCDATA) >
+        <!ELEMENT Note         (#PCDATA) >
+        <!ELEMENT Media        (#PCDATA) >
+        <!ELEMENT Auteur       (#PCDATA) >
+        <!ELEMENT Texte        (#PCDATA) >
+        <!ELEMENT Pays         (#PCDATA) >
+        <!ELEMENT Sortie       (#PCDATA) >
+        <!ELEMENT Palmares     (#PCDATA) >
+        <!ELEMENT Distributeur (#PCDATA) >
+        <!ELEMENT Producteur   (#PCDATA) >
+        <!ELEMENT Titre        (#PCDATA) >
+        <!ELEMENT Duree        (#PCDATA) >
+        <!ELEMENT Nom          (#PCDATA) >
+        <!ELEMENT Prenom       (#PCDATA) >
+        <!ELEMENT Musique      (#PCDATA) >
+
+        <!ATTLIST Film
+                ID                  ID #REQUIRED
+                Langue (fr|uk|vo)   #REQUIRED
+                Affiche             CDATA "none">
+                ID_Realisateurs     IDREF #REQUIRED
+                ID_Acteurs          IDREF #REQUIRED
+        <!ATTLIST Realisateur
+                ID                ID #REQUIRED>
+
+        <!ATTLIST Acteur
+                ID              ID #REQUIRED>
+        ]>
