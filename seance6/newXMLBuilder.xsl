@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding="UTF-8" ?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="xml" encoding="UTF-8" standalone="yes"/>
 
     <xsl:strip-space elements="*"/>
@@ -7,7 +7,7 @@
 
     <xsl:template match="/FILMS">
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE DATAS [
-                &lt;!ELEMENT DATAS (Films,Realisateurs,Acteurs) >
+                &lt;!ELEMENT DATAS (Realisateurs,Acteurs,Films) >
 
                 &lt;!ELEMENT Films (Film)* >
                 &lt;!ELEMENT Realisateurs (Realisateur)* >
@@ -78,24 +78,29 @@
 
     <xsl:template match="Film">
         <xsl:copy>
+
             <xsl:copy-of select="@*"/>
-            <xsl:attribute name="ID_Realisateurs">
-                <xsl:apply-templates select="./Realisateur" mode="attribut"/>
-            </xsl:attribute>
-            <xsl:attribute name="ID_Acteurs">
-                <xsl:apply-templates select="./Acteurs/Acteur" mode="attribut"/>
-            </xsl:attribute>
+            <xsl:if test="count(./Realisateur) > 0">
+                <xsl:attribute name="ID_Realisateurs">
+                    <xsl:apply-templates select="./Realisateur" mode="attribut"/>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:if test="count(./Acteurs/Acteur) > 0">
+                <xsl:attribute name="ID_Acteurs">
+                    <xsl:apply-templates select="./Acteurs/Acteur" mode="attribut"/>
+                </xsl:attribute>
+            </xsl:if>
             <xsl:copy-of select="*[(name() != 'Realisateur') and (name() != 'Acteurs')]"/>
         </xsl:copy>
     </xsl:template>
 
     <xsl:template match="Realisateur" mode="attribut">
-        <xsl:value-of select="@ID" />
+        <xsl:value-of select="@ID"/>
         <xsl:text> </xsl:text>
     </xsl:template>
 
     <xsl:template match="Acteur" mode="attribut">
-        <xsl:value-of select="@ID" />
+        <xsl:value-of select="@ID"/>
         <xsl:text> </xsl:text>
     </xsl:template>
 
