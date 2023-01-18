@@ -1,12 +1,4 @@
-xsltproc seance5/styleFilm4.xsl seance5/film1.xml > seance5/style4.html
+xmllint --noout  seance6/newXML.xml
 
-        <xsl:copy>
-            <xsl:copy-of select="*[name() != 'Realisateur']"/>
-        </xsl:copy>
 
-        <xsl:copy>
-            <xsl:copy-of select="@*">
-            </xsl:copy-of>
-        </xsl:copy>
-
-<!DOCTYPE DATAS SYSTEM "newFilm.dtd">
+xsltproc seance6/newXMLBuilder.xsl seance6/film1.xml > seance6/newXML.xml
